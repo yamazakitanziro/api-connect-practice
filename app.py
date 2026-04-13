@@ -9,3 +9,14 @@ response = requests.get(url)
 
 for coin in response.json():
     st.write(f"{coin['market']}현재가=\{coin['trade_price']:,}")
+
+try:
+    while True:
+        response = requests.get(url)
+        현재가=response.json()[0]['trade_price']
+        목표가 = 140_000_000
+        if 현재가 <= 목표가:
+            st.write("BTC 매수 타이밍! 🚨")
+        time.sleep(5)
+except KeyboardInterrupt:
+    st.write("\n프로그램을 종료합니다.")
