@@ -14,7 +14,7 @@ try:
     while True:
         response = requests.get(url)
         현재가=response.json()[0]['trade_price']
-        목표가 = 140_000_000
+        목표가 = 100_000_000
         if 현재가 <= 목표가:
             st.write("BTC 매수 타이밍! 🚨")
         time.sleep(5)
