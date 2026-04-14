@@ -14,11 +14,17 @@ response2 = requests.get(url2)
 st.write(f"현재가={관심코인가격}")
 
 
-
 #사용자 입력 감시기능
 목표가 = st.text_input("감시 목표가 입력",key="input")
+if "running" not in st.session_state:
+    st.session_state.running = False
+if st.button("시작"):
+    st.session_state.running = True
+if st.button("중지"):
+    st.session_state.running = False
+
 placeholder = st.empty()
-if st.button("확인"):   
+if st.session_state.running:   
     현재가=response2.json()[0]['trade_price']
     if 현재가 <= int(목표가):
         placeholder.write("BTC 매수 타이밍! 🚨")
