@@ -17,6 +17,7 @@ st.write(f"현재가={현재가:,}")
 if "가격기록" not in st.session_state:
     st.session_state.가격기록 = []
 st.session_state.가격기록.append(현재가)
+st.write(st.session_state.가격기록)
 st.line_chart(st.session_state.가격기록)
 
 
