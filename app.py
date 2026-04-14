@@ -9,9 +9,9 @@ url = "https://api.upbit.com/v1/ticker?markets=KRW-BTC,KRW-ETH,KRW-XRP"
 관심코인 = st.selectbox("코인 선택", ["BTC", "ETH", "XRP"])
 url2 = f"https://api.upbit.com/v1/ticker?markets=KRW-{관심코인}"
 response2 = requests.get(url2)
-관심코인가격=f"{response2.json()[0]['trade_price']:,}"
+현재가=response2.json()[0]['trade_price']
 #문자열이라서 숫자와 비교는 불가 
-st.write(f"현재가={관심코인가격}")
+st.write(f"현재가={현재가:,}")
 
 
 #사용자 입력 감시기능
@@ -25,7 +25,6 @@ if st.button("중지"):
 
 placeholder = st.empty()
 if st.session_state.running:   
-    현재가=response2.json()[0]['trade_price']
     if 현재가 <= int(목표가):
         placeholder.write("BTC 매수 타이밍! 🚨")
     else:
@@ -33,9 +32,4 @@ if st.session_state.running:
     time.sleep(15)
     st.rerun()
 
-
-if "가격기록" not in st.session_state:
-    st.session_state.가격기록 = []
-st.session_state.가격기록.append(현재가)
-st.line_chart(st.session_state.가격기록)
 
