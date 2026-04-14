@@ -32,3 +32,10 @@ if st.session_state.running:
         placeholder.write("탐지중")
     time.sleep(15)
     st.rerun()
+
+
+if "가격기록" not in st.session_state:
+    st.session_state.가격기록 = []
+st.session_state.가격기록.append(현재가)
+st.line_chart(st.session_state.가격기록)
+
