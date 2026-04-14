@@ -9,5 +9,5 @@ url = "https://api.upbit.com/v1/ticker?markets=KRW-BTC,KRW-ETH,KRW-XRP"
 관심코인 = st.selectbox("코인 선택", ["BTC", "ETH", "XRP"])
 url2 = f"https://api.upbit.com/v1/ticker?markets=KRW-{관심코인}"
 response2 = requests.get(url2)
-관심코인가격=f"\{response2.json()[0]['trade_price']:,}"
+관심코인가격=f"{response2.json()[0]['trade_price']:,}"
 st.write(f"현재가={관심코인가격}")
