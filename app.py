@@ -13,11 +13,11 @@ for coin in response.json():
 #사용자 입력 감시기능
 목표가 = st.text_input("입력하시오",key="input")
 
-    while True:
-        response = requests.get(url)
-        현재가=response.json()[0]['trade_price']
-        if 현재가 <= 목표가:
-            placeholder.write("BTC 매수 타이밍! 🚨")
-        else:
-            placeholder.write(f"현재가: {현재가}")
-        time.sleep(5)
+while True:
+    response = requests.get(url)
+    현재가=response.json()[0]['trade_price']
+    if 현재가 <= 목표가:
+        placeholder.write("BTC 매수 타이밍! 🚨")
+    else:
+        placeholder.write(f"현재가: {현재가}")
+    time.sleep(5)
