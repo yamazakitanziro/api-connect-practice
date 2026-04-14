@@ -16,6 +16,7 @@ st.write(f"현재가={관심코인가격}")
 
 #사용자 입력 감시기능
 목표가 = st.text_input("목표가 입력",key="input")
+placeholder = st.empty()
 if 목표가!='':
     현재가=response2.json()[0]['trade_price']
     if 현재가 <= int(목표가):
