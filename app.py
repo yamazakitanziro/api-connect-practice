@@ -36,5 +36,5 @@ if st.session_state.running:
         placeholder.write("BTC 매수 타이밍! 🚨")
     else:
         placeholder.write("탐지중")
-    time.sleep(15)
+    time.sleep(2)
     st.rerun()
