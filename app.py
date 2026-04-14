@@ -15,10 +15,10 @@ st.write(f"현재가={관심코인가격}")
 
 #사용자 입력 감시기능
 목표가 = st.text_input("목표가 입력",key="input")
-
-while True:
+현재가=response2.json()[0]['trade_price']
+if 목표가!='':
     관심코인가격=f"\{response2.json()[0]['trade_price']:,}"
-    if 관심코인가격 <= 목표가:
+    if 현재가 <= 목표가:
         placeholder.write("BTC 매수 타이밍! 🚨")
     else:
         placeholder.write("탐지중")
