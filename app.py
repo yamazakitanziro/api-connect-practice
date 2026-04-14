@@ -14,6 +14,12 @@ response2 = requests.get(url2)
 st.write(f"현재가={현재가:,}")
 
 
+if "가격기록" not in st.session_state:
+    st.session_state.가격기록 = []
+st.session_state.가격기록.append(현재가)
+st.line_chart(st.session_state.가격기록)
+
+
 #사용자 입력 감시기능
 목표가 = st.text_input("감시 목표가 입력",key="input")
 if "running" not in st.session_state:
@@ -31,5 +37,3 @@ if st.session_state.running:
         placeholder.write("탐지중")
     time.sleep(15)
     st.rerun()
-
-
